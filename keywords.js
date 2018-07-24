@@ -24,11 +24,25 @@ const pipeline = compose(
 
 // monitor(map(pipeline))(sentences);
 
-const createReverseIndex = sentences => sentences.map(pipeline).reduce((acc, doc, docIndex) => {
+const createReverseHash = sentences => sentences.map(pipeline).reduce((acc, doc, docIndex) => {
 	doc.map(word => {
 		acc[word] = acc[word] ? acc[word].concat(docIndex) : [docIndex];
 	})
 	return acc;
-}, {})
+}, {});
+
+const sortHashBy = comparator => hash => Object.keys(hash).map(key => ({
+    docs: hash[key],
+    count: hash[key].length || 0,
+    key,
+})).sort(comparator);
+
+const docCount = (a, b) => a.count == b.count ? 0 : a.count > b.count ? 1 : -1;
+
+const orderedReverseIndex = compose(
+    sortHashBy(docCount),
+    createReverseHash
+);
+
 	
-// monitor(createReverseIndex)(sentences);
+monitor(orderedReverseIndex)(sentences);
