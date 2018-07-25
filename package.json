@@ -4,11 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nyc --reporter=html --reporter=text ava"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "lodash": "^4.17.10"
+    "lodash": "^4.17.10",
+    "mocha": "^5.2.0"
+  },
+  "devDependencies": {
+    "ava": "1.0.0-beta.6",
+    "nyc": "^12.0.2"
   }
 }
