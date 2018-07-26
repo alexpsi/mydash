@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "nyc --reporter=html --reporter=text ava"
+    "test": "nyc --reporter=html --reporter=text ava",
+    "watch": "ava -w"
   },
   "author": "",
   "license": "ISC",
