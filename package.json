@@ -7,11 +7,10 @@
     "test": "nyc --reporter=html --reporter=text ava",
     "watch": "ava -w"
   },
-  "author": "",
+  "author": "Alex Psi <alexpsi256@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "lodash": "^4.17.10",
-    "mocha": "^5.2.0"
+    "lodash": "^4.17.10"
   },
   "devDependencies": {
     "ava": "1.0.0-beta.6",
