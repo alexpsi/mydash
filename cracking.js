@@ -37,8 +37,3 @@ const balancedBrackets = expression => {
     }) && stack.length === 0;
 }
 
-const trie = {}
-const addToTrie = (trie, str) => {
-    str.split('').reduce((acc, letter) =>  
-}
-
