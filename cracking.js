@@ -1,3 +1,5 @@
+// cracking the coding interview tidbits
+
 const rotLeft = (a,d) => ([...a.slice(d % a.length), ...a.slice(0, d % a.length)])
 
 const letterFreq = word => word.split('').reduce((acc, letter) => ({
@@ -35,5 +37,11 @@ const balancedBrackets = expression => {
         if (element === '}' && top == '{') return true;
         return false;
     }) && stack.length === 0;
+}
+
+const recursiveDigitSum = _s => {
+    const s = sum(_s.split('').map(x => parseInt(x)));
+    if (s < 9) return s;
+    return recursiveDigitSum(s.toFixed())
 }
 
